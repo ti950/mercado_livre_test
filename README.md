@@ -9,6 +9,8 @@ Repositório com a minha solução para o desafio proposto
 
 # Requisitos
 - mínima api version: 16
+- permissão: ACCESS_NETWORK_STATE, INTERNET
+- compilação version: 30
 
 # Ferramentas
 - Retrofit
