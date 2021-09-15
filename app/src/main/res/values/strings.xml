@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ML-Teste</string>
+
+    <string name="title_search">Buscar Produto</string>
+    <string name="network_off">Sem conexão</string>
+    <string name="query_empty">Por favor, digite algo!!</string>
+    <string name="info_search">Realizando busca</string>
+
+    <string name="title">Title</string>
+    <string name="price">price</string>
+    <string name="seller">seller</string>
+</resources>
