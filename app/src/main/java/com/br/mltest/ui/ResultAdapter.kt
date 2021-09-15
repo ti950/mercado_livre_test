@@ -10,7 +10,7 @@ import com.br.mltest.utils.Utils
 import kotlinx.android.synthetic.main.item_search.view.*
 
 class ResultAdapter(private val items: List<Item>,
-                    val onItemClickListener: ((item: Item) -> Unit)
+                    private val onItemClickListener: ((item: Item) -> Unit)
 ) : RecyclerView.Adapter<ResultAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {

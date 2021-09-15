@@ -7,6 +7,7 @@ import android.view.MenuItem
 import com.br.mltest.R
 import com.br.mltest.base.BaseActivity
 import com.br.mltest.model.Item
+import com.br.mltest.utils.Utils
 import kotlinx.android.synthetic.main.activity_item_details.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import java.io.Serializable
@@ -29,6 +30,14 @@ class ItemDetailsActivity: BaseActivity() {
     private fun setFields(item: Item){
         txTitle.text = item.title
         txSeller.text = item.seller.permalink
+        txAvailable.text = getString(R.string.available, item.available_quantity)
+        txSold.text = getString(R.string.sold, item.sold_quantity)
+        txCondition.text = getString(R.string.condition, Utils.toPortuguese(item.condition))
+        txAddress.text = getString(R.string.address, item.address.city_name, item.address.state_name)
+        txPrice.text = getString(R.string.price_value, Utils.currencyFormat(item.price))
+        txInstallments.text = getString(R.string.installments,
+            item.installments.quantity.toString(),
+            Utils.currencyFormat(item.installments.amount.toString()))
     }
 
     @Override

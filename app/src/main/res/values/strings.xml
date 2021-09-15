@@ -4,9 +4,22 @@
     <string name="title_search">Buscar Produto</string>
     <string name="network_off">Sem conexão</string>
     <string name="query_empty">Por favor, digite algo!!</string>
+
+    <string name="error_401">Não autorizado</string>
+    <string name="error_400_generic">Erro não tratado</string>
+    <string name="error_500_generic">Erro catastrófico</string>
+
     <string name="info_search">Realizando busca</string>
+    <string name="search">Pesquisar</string>
+    <string name="wifi">wifi</string>
 
     <string name="title">Title</string>
     <string name="price">price</string>
     <string name="seller">seller</string>
+    <string name="available">Disponível: %1$s</string>
+    <string name="sold">Vendidos: %1$s</string>
+    <string name="condition">Condição: %1$s</string>
+    <string name="address">Endereço: %1$s - %2$s</string>
+    <string name="price_value">Valor: %1$s</string>
+    <string name="installments">Ou: %1$s X %2$s</string>
 </resources>

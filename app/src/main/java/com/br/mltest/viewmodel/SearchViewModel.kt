@@ -16,7 +16,7 @@ class SearchViewModel(private val dataSource: SearchRepository) : ViewModel() {
     val viewFieldLiveData: MutableLiveData<Int> = MutableLiveData()
     val viewLoadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
-    private fun getSearchItem(query: String) {
+    fun getSearchItem(query: String) {
         dataSource.searchItem(query) { result: ItemResult ->
             run {
                 when (result) {
@@ -25,13 +25,13 @@ class SearchViewModel(private val dataSource: SearchRepository) : ViewModel() {
                     }
                     is ItemResult.ApiError -> {
                         if (result.statusCode == 401) {
-                            viewFieldLiveData.value = R.string.query_empty
+                            viewFieldLiveData.value = R.string.error_401
                         } else {
-                            viewFieldLiveData.value = R.string.query_empty
+                            viewFieldLiveData.value = R.string.error_400_generic
                         }
                     }
                     is ItemResult.ServerError -> {
-                        viewFieldLiveData.value = R.string.query_empty
+                        viewFieldLiveData.value = R.string.error_500_generic
                     }
                 }
             }

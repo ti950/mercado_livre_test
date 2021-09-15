@@ -31,7 +31,8 @@
             android:src="@drawable/ic_wifi_off"
             app:layout_constraintBottom_toBottomOf="@+id/txInfoNetwork"
             app:layout_constraintEnd_toStartOf="@+id/txInfoNetwork"
-            app:layout_constraintTop_toTopOf="@+id/txInfoNetwork" />
+            app:layout_constraintTop_toTopOf="@+id/txInfoNetwork"
+            android:contentDescription="@string/wifi" />
 
         <TextView
             android:id="@+id/txInfoNetwork"
@@ -54,19 +55,24 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/edQuery"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/queryTextInputLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:hint="digite algo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:layout_margin="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edQuery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/query_empty" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnSearch"
@@ -78,11 +84,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Pesquisar"
+        android:text="@string/search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edQuery"
+        app:layout_constraintTop_toBottomOf="@+id/queryTextInputLayout"
         app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar

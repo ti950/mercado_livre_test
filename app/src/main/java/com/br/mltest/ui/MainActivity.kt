@@ -13,8 +13,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 class MainActivity : BaseActivity() {
+
+    private var query: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (savedInstanceState != null) {
+            query = savedInstanceState.getString("query")
+        }
         setContentView(R.layout.activity_main)
 
         setupToolbar(toolbarMain, R.string.title_search)
@@ -24,12 +30,12 @@ class MainActivity : BaseActivity() {
 
         viewModel.itemLiveData.observe(this, Observer {
             it?.let { items ->
+                val intent = SearchResultsActivity.getStartIntent(this, edQuery.text.toString(), items)
 
                 pbLoading.visibility = View.GONE
                 txInfo.visibility = View.GONE
                 btnSearch.visibility = View.VISIBLE
 
-                val intent = SearchResultsActivity.getStartIntent(this, edQuery.text.toString(), items)
                 this@MainActivity.startActivity(intent)
             }
         })
@@ -69,5 +75,14 @@ class MainActivity : BaseActivity() {
             viewModel.validateFields(edQuery.text.toString())
             hideKeyboard(currentFocus ?: View(this))
         }
+
+        if (!query.isNullOrEmpty()){
+            edQuery.setText(query)
+        }
+    }
+
+    override fun onSaveInstanceState(extra: Bundle) {
+        super.onSaveInstanceState(extra)
+        extra.putString("query", edQuery.text.toString())
     }
 }

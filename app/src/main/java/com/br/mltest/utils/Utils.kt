@@ -9,4 +9,9 @@ object Utils {
         return "R$ " + formatter.format(price.toDouble())
     }
 
+    fun toPortuguese(value: String): String {
+        if (value == "new") return "novo"
+        return value
+    }
+
 }
